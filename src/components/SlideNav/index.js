@@ -1,4 +1,4 @@
-import React,{Component,Fragment} from 'react';
+import React,{Component} from 'react';
 // 在 handleClick中因为没有路由对象，需要使用withRouter处理
 import {withRouter} from 'react-router-dom'
 import { Menu ,Icon} from 'antd';
@@ -49,7 +49,7 @@ class SlideNav extends Component{
           theme={this.state.theme}
           onClick={this.handleClick}
           style={{ width: 200 }}
-          defaultOpenKeys={['2']}
+          defaultOpenKeys={['1']}
           selectedKeys={[this.state.current]}
           mode="inline"
         >

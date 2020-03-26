@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {HashRouter,Link,Route,Switch,Redirect} from 'react-router-dom'
+import {HashRouter,Route,Redirect} from 'react-router-dom'
 import Admin from './pages/Admin'
 import Login from './pages/Login'
 import User from './pages/User'
@@ -18,6 +18,8 @@ class App extends Component{
             </Admin>
           )
         }}></Route>
+        {/* 重定向 */}
+        <Redirect from="/" to="/login" />
       </HashRouter>
     )
   }
