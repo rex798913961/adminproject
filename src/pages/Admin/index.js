@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 import { Layout} from 'antd';
-import SlideNav from '../../component/SlideNav'
+import SlideNav from '../../components/SlideNav'
 const { Header, Content, Footer, Sider } = Layout;
 
 
