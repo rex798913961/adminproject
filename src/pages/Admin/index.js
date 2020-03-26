@@ -22,7 +22,7 @@ class Admin extends Component{
         <Layout className="site-layout" style={{ marginLeft: 200 }}>
           <Header className="site-layout-background" style={{ padding: 0 }} />
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-            这是管理页面
+            这是管理页面  张志锋
             {/* 使用this.props.children渲染APP.js传来的需要渲染的组件 */}
             {this.props.children}
           </Content>
