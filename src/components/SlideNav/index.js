@@ -48,7 +48,7 @@ class SlideNav extends Component{
         <Menu
           theme={this.state.theme}
           onClick={this.handleClick}
-          style={{ width: 256 }}
+          style={{ width: 200 }}
           defaultOpenKeys={['2']}
           selectedKeys={[this.state.current]}
           mode="inline"
