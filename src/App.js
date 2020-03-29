@@ -3,6 +3,8 @@ import {HashRouter,Route,Redirect} from 'react-router-dom'
 import Admin from './pages/Admin'
 import Login from './pages/Login'
 import User from './pages/User'
+import Employee from './pages/Employee/EmployeeInfo'
+import AddEmployeeInfo from './pages/Employee/AddEmployeeInfo'
 class App extends Component{
   render(){
     return(
@@ -15,6 +17,9 @@ class App extends Component{
             // 需要使用嵌套路由实现管理页面内的跳转
             <Admin>
                <Route path='/admin/user' component={User}></Route>
+               <Route path='/admin/employee' component={Employee}></Route>
+               <Route path='/admin/addEmployee' component={AddEmployeeInfo}></Route>
+
             </Admin>
           )
         }}></Route>

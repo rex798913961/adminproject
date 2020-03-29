@@ -40,5 +40,28 @@ export default [
             path:'/admin/goodsKind'
           }
         ]
+      },
+      {
+        key:'4',
+        title:"员工管理",
+        icon:'goods',
+        path:'/admin/employee',
+        children:[
+          {
+            key:'4-1',
+            title:'员工信息',
+            path:'/admin/employee'
+          },
+          {
+            key:'4-2',
+            title:'添加员工',
+            path:'/admin/addEmployee'
+          },
+          {
+            key:'4-3',
+            title:'员工排班',
+            path:'/admin/employeeSchedule'
+          }
+        ]
       }
 ]
