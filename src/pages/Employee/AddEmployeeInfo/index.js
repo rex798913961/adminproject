@@ -1,5 +1,7 @@
 import React,{Component} from 'react'
-import {Form,Input,DatePicker,Button} from 'antd';
+import {Form,Input,DatePicker,Button,Select} from 'antd';
+
+const { Option } = Select;
 
 class AddEmployeeInfo extends Component {
     state = {
@@ -16,7 +18,6 @@ class AddEmployeeInfo extends Component {
                     return
                 }
                 console.log(values);
-                
          })
       }
     
@@ -28,36 +29,128 @@ class AddEmployeeInfo extends Component {
             sm: { span: 8 },
           },
           wrapperCol: {
-            xs: { span: 24 },
-            sm: { span: 16 },
-          },
+            xs: { span: 16 },
+            sm: { span: 8 },
+          }
         };
+        const tailFormItemLayout = {
+            wrapperCol: {
+              xs: {
+                span: 24,
+                offset: 0,
+              },
+              sm: {
+                span: 16,
+                offset: 8,
+              },
+            },
+          };
         return (
           <Form {...formItemLayout} onSubmit={this.handleSubmit}>
             <Form.Item label="姓名">
-              <Input/>
+                {getFieldDecorator('name', {
+                    rules: [
+                    {
+                        required: true,
+                        message: '请输入姓名',
+                    }
+                    ],
+                })(<Input />)}
             </Form.Item>
-            <Form.Item label="邮箱">
-          {getFieldDecorator('email', {
-            rules: [
-              {
-                type: 'email',
-                message: 'The input is not valid E-mail!',
-              },
-              {
-                required: true,
-                message: 'Please input your E-mail!',
-              },
-            ],
-          })(<Input />)}
-        </Form.Item>
+
+            <Form.Item label="联系方式">
+                {getFieldDecorator('phonenum', {
+                    rules: [
+                    {
+                        message: '无效的手机号码',
+                    },
+                    {
+                        required: true,
+                        message: '请输入手机号',
+                    }
+                    ]
+                })(<Input />)}
+            </Form.Item>
             
             <Form.Item label='出生日期' >
-                <DatePicker onChange={(e)=>{console.log(e._d)}} />
+                {getFieldDecorator('birthdate', {
+                    rules: [
+                    {
+                        required: true,
+                        message: '请输入出生日期',
+                    }
+                    ],
+                })(<DatePicker/>)}
+            </Form.Item>
+            
+            <Form.Item label="店铺">
+                {getFieldDecorator('store', {
+                    rules: [
+                    {
+                        message: '无效的店铺地址',
+                    },
+                    {
+                        required: true,
+                        message: '请选择店铺地址',
+                    }
+                    ],
+                })(<Select>
+                    <Option value="北京路店">北京路店</Option>
+                    <Option value="天河店">天河店</Option>
+                    <Option value="越秀店">越秀店</Option>
+                </Select>)}
             </Form.Item>
 
+            <Form.Item label="职位">
+                {getFieldDecorator('jobClassification', {
+                    rules: [
+                    {
+                        message: '无效的职位',
+                    },
+                    {
+                        required: true,
+                        message: '请选择职位',
+                    }
+                    ],
+                })(<Select>
+                    <Option value="店长">店长</Option>
+                    <Option value="副店长">副店长</Option>
+                    <Option value="正式工">正式工</Option>
+                    <Option value="试用工">试用工</Option>
+                </Select>)}
+            </Form.Item>
+            
+            <Form.Item label="学历">
+                {getFieldDecorator('educationBackground', {
+                    rules: [
+                    {
+                        message: '无效的学历',
+                    },
+                    {
+                        required: true,
+                        message: '请选择学历',
+                    }
+                    ],
+                })(<Select>
+                    <Option value="研究生">研究生</Option>
+                    <Option value="本科">本科</Option>
+                    <Option value="专科">专科</Option>
+                    <Option value="高中及以下">高中及以下</Option>
+                </Select>)}
+            </Form.Item>
 
-            <Form.Item>
+            <Form.Item label="薪资">
+                {getFieldDecorator('salary', {
+                    rules: [
+                    {
+                        required: true,
+                        message: '请输入薪资',
+                    }
+                    ],
+                })(<Input />)}
+            </Form.Item>
+
+            <Form.Item {...tailFormItemLayout}>
               <Button type="primary" htmlType="submit">
                 添加
               </Button>
