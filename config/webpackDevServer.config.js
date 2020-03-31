@@ -101,7 +101,15 @@ module.exports = function(proxy, allowedHost) {
     },
     public: allowedHost,
     // `proxy` is run between `before` and `after` `webpack-dev-server` hooks
-    proxy,
+    proxy:{
+      '/panda':{
+        target:'http://localhost:2020/',
+        changeOrigin:true,
+        pathRewrite:{
+          "^/panda":''
+        }
+      }
+    },
     before(app, server) {
       // Keep `evalSourceMapMiddleware` and `errorOverlayMiddleware`
       // middlewares before `redirectServedPath` otherwise will not have any effect

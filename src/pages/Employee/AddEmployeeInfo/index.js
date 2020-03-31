@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import {Form,Input,DatePicker,Button,Select} from 'antd';
+import api from '../../../api/employee'
 
 const { Option } = Select;
 
@@ -17,7 +18,15 @@ class AddEmployeeInfo extends Component {
                 if (err) {
                     return
                 }
-                console.log(values);
+            console.log(values);
+            // 发送请求
+            api.add(values).then((res)=>{
+                console.log('添加成功',res);
+                // 添加成功以后弹出模态框提示
+                
+                // 跳转到员工列表页面
+                this.props.history.replace('/admin/employee')
+            })
          })
       }
     

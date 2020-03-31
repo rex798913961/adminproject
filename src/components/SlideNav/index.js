@@ -12,10 +12,10 @@ class SlideNav extends Component{
       current: '1',
   };
   handleClick = e => {
-    this.setState({
-      current: e.key,
-    });
     let {path} = e.item.props 
+    this.setState({
+      current: path,
+    });
     this.props.history.replace(path)
   };
   renderItem(data){
@@ -45,8 +45,9 @@ class SlideNav extends Component{
     })
   }
   render(){
+    const path = this.props.location.pathname
     return(
-    <Menu onClick={this.handleClick.bind(this)} style={{ width: 200 }} mode="inline" theme='dark'>
+    <Menu onClick={this.handleClick.bind(this)} style={{ width: 200 }} mode="inline" theme='dark' selectedKeys={[path]}>
       {this.renderItem(menulist)}
     </Menu>
     )

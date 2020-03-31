@@ -17,14 +17,14 @@ class App extends Component{
             // 需要使用嵌套路由实现管理页面内的跳转
             <Admin>
                <Route path='/admin/user' component={User}></Route>
+               {/* 员工路由 */}
                <Route path='/admin/employee' component={Employee}></Route>
                <Route path='/admin/addEmployee' component={AddEmployeeInfo}></Route>
-
             </Admin>
           )
         }}></Route>
         {/* 重定向 */}
-        <Redirect from="/" to="/login" />
+        <Redirect from="/" to="/admin" />
       </HashRouter>
     )
   }

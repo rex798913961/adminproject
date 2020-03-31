@@ -12,12 +12,12 @@ export default [
         path:'/admin/user',
         children:[
             {
-                key:'2-1',
+                key:'/admin/userlist',
                 title:"查询用户",
                 path:'/admin/userlist'
             },
             {
-                key:'2-2',
+                key:'/admin/useradd',
                 title:"用户添加",
                 path:'/admin/useradd'
             },
@@ -30,12 +30,12 @@ export default [
         path:'/admin/goods',
         children:[
           {
-            key:'3-1',
+            key:'/admin/goodsInfo',
             title:'商品信息',
             path:'/admin/goodsInfo'
           },
           {
-            key:'3-2',
+            key:'/admin/goodsKind',
             title:'商品类别',
             path:'/admin/goodsKind'
           }
@@ -48,17 +48,17 @@ export default [
         path:'/admin/employee',
         children:[
           {
-            key:'4-1',
+            key:'/admin/employee',
             title:'员工信息',
             path:'/admin/employee'
           },
           {
-            key:'4-2',
+            key:'/admin/addEmployee',
             title:'添加员工',
             path:'/admin/addEmployee'
           },
           {
-            key:'4-3',
+            key:'/admin/employeeSchedule',
             title:'员工排班',
             path:'/admin/employeeSchedule'
           }
