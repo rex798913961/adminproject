@@ -92,6 +92,17 @@ class AddEmployeeInfo extends Component {
                 })(<DatePicker/>)}
             </Form.Item>
             
+            <Form.Item label='雇佣日期' >
+                {getFieldDecorator('employmentDate', {
+                    rules: [
+                    {
+                        required: true,
+                        message: '请输入雇佣日期',
+                    }
+                    ],
+                })(<DatePicker/>)}
+            </Form.Item>
+
             <Form.Item label="店铺">
                 {getFieldDecorator('store', {
                     rules: [
