@@ -26,7 +26,7 @@ export default [
     {
         key:'3',
         title:"商品管理",
-        icon:'goods',
+        icon: 'gift', 
         path:'/admin/goods',
         children:[
           {
