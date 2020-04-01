@@ -21,16 +21,13 @@ class App extends Component{
             // 需要使用嵌套路由实现管理页面内的跳转
             <Admin>
                <Route path='/admin/user' component={User}></Route>
-<<<<<<< HEAD
                <Route path='/admin/goodsInfo' component={GoodsInfo}></Route>
                <Route path='/admin/goodsAdd' component={GoodsAdd}></Route>
                <Route path='/admin/goodsUpdate/:id' component={GoodsUpdate}></Route>
-=======
                {/* 员工路由 */}
                <Route path='/admin/employee' component={Employee}></Route>
                <Route path='/admin/addEmployee' component={AddEmployeeInfo}></Route>
                <Route path='/admin/employeeInfoUpdate/:_id' component={UpdateEmployeeInfo}></Route>
->>>>>>> f43d6b479eb6a9f2a138fa8889ff4151474dd020
             </Admin>
           )
         }}></Route>
