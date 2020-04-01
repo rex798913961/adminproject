@@ -12,50 +12,44 @@ class SlideNav extends Component{
       current: '1',
   };
   handleClick = e => {
-    this.setState({
-      current: e.key,
-    });
     let {path} = e.item.props 
+    this.setState({
+      current: path,
+    });
     this.props.history.replace(path)
   };
-  renderItem(list){
-    return list.map((item,index)=>{
-      return (<Menu.Item key={item.key} path={item.path}>{item.title}</Menu.Item>)
-      
-    })
-  }
-  renderNAV(list){
-    return list.map((item,index)=>{
-      return(
-          <SubMenu
-            key={item.key}
-            title={
+  renderItem(data){
+    return data.map((item,index)=>{
+      if(item.children){
+        return(
+          <SubMenu key={item.key} title={(()=>{
+            return(
               <span>
-                <Icon type={item.icon}/>
-                <span>{item.title}</span>
+                {item.icon?<Icon type={item.icon} />:''}
+                {item.title}
               </span>
-            }
-            path={item.path}
-          >
-            {item.children?this.renderItem(item.children):''}
+            )
+          })()}>
+            {/* 如果里面还有2级 将渲染的方法在调用一遍 */}
+            {this.renderItem(item.children)}
           </SubMenu>
-      )
+        )
+      }else{
+        return(
+        <Menu.Item key={item.key} path={item.path}>
+          {item.icon?<Icon type={item.icon} />:''}
+          {item.title}
+        </Menu.Item>
+        )
+      }
     })
   }
   render(){
+    const path = this.props.location.pathname
     return(
-        <div>
-        <Menu
-          theme={this.state.theme}
-          onClick={this.handleClick}
-          style={{ width: 200 }}
-          defaultOpenKeys={['1']}
-          selectedKeys={[this.state.current]}
-          mode="inline"
-        >
-          {this.renderNAV(menulist)}
-        </Menu>
-        </div>
+    <Menu onClick={this.handleClick.bind(this)} style={{ width: 200 }} mode="inline" theme='dark' selectedKeys={[path]}>
+      {this.renderItem(menulist)}
+    </Menu>
     )
   }
 }

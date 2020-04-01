@@ -108,6 +108,13 @@ module.exports = function(proxy, allowedHost) {
         pathRewrite:{
           '^/mall':''
         }
+      },
+      '/panda':{
+        target:'http://localhost:2020/',
+        changeOrigin:true,
+        pathRewrite:{
+          "^/panda":''
+        }
       }
     },
     before(app, server) {
