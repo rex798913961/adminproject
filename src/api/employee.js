@@ -17,9 +17,14 @@ class employee {
         return axios.delete(url,{data:{_id}})
     }
     // 更新员工信息
-    update(_id,obj){
+    update(obj){
         let url = '/panda/employee/updateemployee'
-        return axios.put(url,{_id,obj})
+        return axios.put(url,obj)
+    }
+    // 根据字段搜索
+    findone(_id){
+        let url = '/panda/employee/employeeone'
+        return axios.get(url,{params:{_id}})
     }
 }
 

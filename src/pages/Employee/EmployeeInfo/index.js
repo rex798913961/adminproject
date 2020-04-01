@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import api from '../../../api/employee'
-import { Table,Popconfirm, message} from 'antd';
+import { Table,Popconfirm, message,Divider, Button} from 'antd';
 
 
 class Employee extends Component{
@@ -48,20 +48,26 @@ class Employee extends Component{
                   title: '操作',
                   key: 'action',
                   render: (text, record) => (
+                    <div>
                       <Popconfirm
                         title="确定要删除这个员工的信息吗？"
-                        onConfirm={()=>{
-                          this.del(record._id)
-
-                        }}
-                        onCancel={()=>{
-                          message.error('取消删除');
-                        }}
-                        okText="Yes"
-                        cancelText="No"
+                        onConfirm={()=>{this.del(record._id)}}
+                        onCancel={()=>{message.error('取消删除');}}
+                        okText="是"
+                        cancelText="否"
                       >
-                        <a href="#">删除</a>
+                        <Button>删除</Button>
                       </Popconfirm>
+                      <Popconfirm
+                        title="确定要修改这个员工的信息吗？"
+                        onConfirm={()=>{this.props.history.replace('/admin/employeeInfoUpdate/'+record._id)}}
+                        onCancel={()=>{message.error('取消修改');}}
+                        okText="是"
+                        cancelText="否"
+                      >
+                        <Button>修改</Button>
+                      </Popconfirm>
+                    </div>
                   ),
                 },
               ]

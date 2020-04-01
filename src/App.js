@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import User from './pages/User'
 import Employee from './pages/Employee/EmployeeInfo'
 import AddEmployeeInfo from './pages/Employee/AddEmployeeInfo'
+import UpdateEmployeeInfo from './pages/Employee/UpdateEmployee'
 class App extends Component{
   render(){
     return(
@@ -20,6 +21,7 @@ class App extends Component{
                {/* 员工路由 */}
                <Route path='/admin/employee' component={Employee}></Route>
                <Route path='/admin/addEmployee' component={AddEmployeeInfo}></Route>
+               <Route path='/admin/employeeInfoUpdate/:_id' component={UpdateEmployeeInfo}></Route>
             </Admin>
           )
         }}></Route>
