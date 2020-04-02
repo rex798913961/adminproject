@@ -12,13 +12,13 @@ class AddEmployeeInfo extends Component {
     
       handleSubmit = e => {
         e.stopPropagation()
-        console.log(e);
+        // console.log(e);
          this.props.form.validateFields(
             (err, values) => {
                 if (err) {
                     return
                 }
-            console.log(values);
+            // console.log(values);
             // 发送请求
             api.add(values).then((res)=>{
                 console.log('添加成功',res);

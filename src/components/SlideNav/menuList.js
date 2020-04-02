@@ -56,11 +56,6 @@ export default [
             key:'/admin/addEmployee',
             title:'添加员工',
             path:'/admin/addEmployee'
-          },
-          {
-            key:'/admin/employeeSchedule',
-            title:'员工排班',
-            path:'/admin/employeeSchedule'
           }
         ]
       }
