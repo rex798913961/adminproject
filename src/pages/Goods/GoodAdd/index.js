@@ -29,7 +29,7 @@ class GoodsUpdata extends Component{
         if(types.indexOf(type.split('/')[1])===-1){return message.warning('只允许图片格式为jpg,png,gif,jpeg,svg')}
         let formdata = new FormData()
         formdata.append('pic',file)
-        let {err,msg,path}= await (await goodsApi.uploadImg(formdata)).data
+        let {err,msg,path}= await (await goodsApi.uploadImg(formdata))
         console.log({err,msg,path});
         
         if(err){return message.error(msg)}
